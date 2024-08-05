@@ -52,7 +52,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-public class AircraftOsMapView extends Fragment {
+public class AircraftMapView extends Fragment {
     private final double P_TOKYO_LATITUDE = 35.681167;
     private final double P_TOKYO_LONGITUDE = 139.767052;
     private final double P_DEFAULT_LATITUDE = 0;
@@ -202,8 +202,8 @@ public class AircraftOsMapView extends Fragment {
 
         MapObserver(AircraftObject active) {
             aircraft = active;
-            aircraft.location.observe(AircraftOsMapView.this, this);
-            aircraft.system.observe(AircraftOsMapView.this, systemObserver);
+            aircraft.location.observe(AircraftMapView.this, this);
+            aircraft.system.observe(AircraftMapView.this, systemObserver);
             polylineData = new ArrayList<>();
         }
 
