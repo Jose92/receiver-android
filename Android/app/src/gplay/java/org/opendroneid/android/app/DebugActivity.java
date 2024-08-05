@@ -183,9 +183,8 @@ public class DebugActivity extends AppCompatActivity {
             showToast(message);
             return true;
         }
-        if (BuildConfig.USE_GOOGLE_MAPS)
-            return mMapView.changeMapType(item);
-        return false;
+
+        return mMapView.changeMapType(item);
     }
 
     boolean getLogEnabled() {
@@ -347,15 +346,10 @@ public class DebugActivity extends AppCompatActivity {
 
         addDeviceList();
 
-        if (BuildConfig.USE_GOOGLE_MAPS) {
-            mMapView = (AircraftMapView) getSupportFragmentManager().findFragmentById(R.id.mapView);
-            if (mMapView != null)
-                mMapView.setMapSettings();
-        } else {
-            AircraftOsMapView mOsMapView = (AircraftOsMapView) getSupportFragmentManager().findFragmentById(R.id.mapView);
-            if (mOsMapView != null)
-                mOsMapView.setMapSettings();
-        }
+        mMapView = (AircraftMapView) getSupportFragmentManager().findFragmentById(R.id.mapView);
+        if (mMapView != null)
+            mMapView.setMapSettings();
+
     }
 
     @Override
